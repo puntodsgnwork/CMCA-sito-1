@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CMCA S.r.l. - Specialisti in impianti aeraulici dal 1990. Costruzione, montaggio e sanificazione di canalizzazioni. Certificati AIISA e NADCA. Zona Industriale Caraffa di Catanzaro (CZ).">
+    <meta name="keywords" content="impianti aeraulici, canalizzazioni, sanificazione impianti, AIISA, NADCA, Catanzaro, Calabria, condizionamento, ventilazione, igienisti certificati">
+    <meta name="author" content="CMCA S.r.l.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.cmcasrl.it">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CMCA S.r.l. - Specialisti in Impianti Aeraulici">
+    <meta property="og:description" content="Oltre 30 anni di esperienza in costruzione e sanificazione impianti aeraulici. Certificati AIISA e NADCA.">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CMCA S.r.l. - Specialisti in Impianti Aeraulici">
+    
+    <title>CMCA S.r.l. - Specialisti in Impianti Aeraulici | Costruzione e Sanificazione | Caraffa di Catanzaro</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            cursor: none;
+        }
+
+        /* Custom Cursor */
+        .cursor {
+            position: fixed;
+            pointer-events: none;
+            width: 4px;
+            height: 4px;
+            border: 2px solid rgba(255,255,255,1);
+            border-radius: 50%;
+            box-sizing: border-box;
+            transform: translate(-50%, -50%);
+            z-index: 10000;
+            transition: border-color 0.2s ease-out;
+        }
+
+        .cursor.on-focus {
+            transform: translate(0,0);
+            border-color: transparent;
+        }
+
+        .cursor-follow {
+            position: fixed;
+            pointer-events: none;
+            width: 8px;
+            height: 8px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,1);
+            border-radius: 50%;
+            box-sizing: border-box;
+            transform: translate(-50%, -50%);
+            transition: all 0.2s ease-out;
+            z-index: 9999;
+        }
+
+        .cursor-follow.on-focus {
+            padding: 0;
+            border: 4px solid #006BBA;
+            transform: translate(0, 0);
+        }
+
+        /* Header with Dark Background */
+        header {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+
+        /* Navigation Links - Minimal White Style */
+        .nav-menu {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li {
+            list-style: none;
+        }
+
+        .nav-menu li a {
+            text-decoration: none;
+            color: rgba(255,255,255,1);
+            font-weight: 400;
+            transition: all 0.2s ease-out;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            padding: 0.5rem 0;
+            cursor: none;
+        }
+
+        .nav-menu li a:hover {
+            color: #006BBA;
+        }
+
+        /* Minimal Social Icons */
+        .social-icons {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            margin-left: 2rem;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            color: rgba(255,255,255,0.7);
+            transition: all 0.3s ease;
+            cursor: none;
+        }
+
+        .social-icons a:hover {
+            color: #006BBA;
+            transform: translateY(-3px);
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: none;
+            gap: 5px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        body.menu-open {
+            overflow: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.95) 0%, rgba(52, 73, 94, 0.95) 100%),
+                        url('https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=1600&q=80') center/cover;
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+        }
+
+        .hero img {
+            max-width: 900px;
+            margin: 2rem auto;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: #006BBA;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            cursor: none;
+        }
+
+        .cta-button:hover {
+            background: #004d87;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,107,186,0.3);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2C3E50;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid #006BBA;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,107,186,0.2);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: #2C3E50;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Certifications Grid */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cert-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .cert-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .cert-card h3 {
+            color: #2C3E50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .cert-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .cert-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #006BBA;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: none;
+        }
+
+        .cert-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2C3E50;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #006BBA;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #006BBA 0%, #004d87 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,107,186,0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2C3E50 100%);
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #006BBA;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: #006BBA;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 320px;
+                max-width: 85vw;
+                background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: stretch;
+                padding: 5rem 2rem 2rem;
+                gap: 0;
+                transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: -5px 0 25px rgba(0,0,0,0.5);
+                overflow-y: auto;
+                z-index: 1000;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-menu li {
+                width: 100%;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .nav-menu li a {
+                display: block;
+                padding: 1.2rem 1rem;
+                width: 100%;
+            }
+
+            .nav-menu li a:hover {
+                background: rgba(0, 107, 186, 0.2);
+                padding-left: 1.5rem;
+            }
+
+            .social-icons {
+                margin: 2rem 0 0 0;
+                justify-content: center;
+                padding-top: 2rem;
+                border-top: 1px solid rgba(255,255,255,0.1);
+            }
+
+            body.menu-open::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0,0,0,0.7);
+                z-index: 999;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            nav {
+                padding: 1rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-grid,
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follow"></div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <svg class="logo" viewBox="0 0 621.79 306.71" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <style>
+                      .cls-1 { fill: #fd2500; }
+                      .cls-2 { fill: #006bba; }
+                      .cls-3 { fill: #f92500; }
+                    </style>
+                </defs>
+                <path class="cls-3" d="M412.27,238.06l41.41-111.45h24.79l40.74,111.45h-25.73l-8.44-25.32h-38.6l-9.25,25.32h-24.93ZM453.82,191.27h24.52l-11.52-34.95h-.54l-12.46,34.95Z"/>
+                <path class="cls-3" d="M132.38,238.12c-10.23,0-19.22-2.33-26.96-7-7.74-4.66-13.77-11.19-18.07-19.59-4.3-8.39-6.45-18.14-6.45-29.25s2.15-20.85,6.45-29.25c4.3-8.39,10.32-14.92,18.07-19.59,7.74-4.66,16.73-7,26.96-7,8.42,0,15.98,1.62,22.69,4.86,6.7,3.24,12.2,7.82,16.5,13.72,4.3,5.91,6.95,12.81,7.95,20.72h-26.08c-.63-5.06-2.9-9.19-6.79-12.39-3.89-3.2-8.65-4.8-14.26-4.8s-10.01,1.4-13.99,4.2c-3.99,2.8-7.06,6.71-9.24,11.73-2.17,5.02-3.26,10.95-3.26,17.79s1.09,12.66,3.26,17.72c2.17,5.06,5.25,8.99,9.24,11.79,3.98,2.8,8.65,4.2,13.99,4.2,5.61,0,10.37-1.6,14.26-4.8,3.89-3.2,6.16-7.33,6.79-12.39h26.08c-1,7.91-3.65,14.81-7.95,20.72-4.3,5.91-9.8,10.48-16.5,13.72-6.7,3.24-14.26,4.86-22.69,4.86Z"/>
+                <path class="cls-3" d="M188.64,238.12v-111.61h32.98l26.85,74.96h.55l26.71-74.96h32.84v111.61h-25.08v-74.13h-.54l-24.67,74.13h-20.99l-24.67-74.13h-.55v74.13h-23.44Z"/>
+                <path class="cls-3" d="M369.09,238.12c-10.23,0-19.21-2.33-26.95-6.99-7.74-4.66-13.76-11.19-18.06-19.58-4.3-8.39-6.45-18.13-6.45-29.23s2.15-20.84,6.45-29.23c4.3-8.39,10.32-14.92,18.06-19.58,7.74-4.66,16.72-6.99,26.95-6.99,8.42,0,15.98,1.62,22.68,4.86,6.7,3.24,12.2,7.81,16.5,13.72,4.3,5.91,6.95,12.81,7.94,20.71h-26.07c-.63-5.06-2.9-9.19-6.79-12.39-3.89-3.2-8.64-4.79-14.26-4.79s-10,1.4-13.99,4.2c-3.98,2.8-7.06,6.71-9.23,11.72-2.17,5.02-3.26,10.94-3.26,17.78s1.09,12.65,3.26,17.71c2.17,5.06,5.25,8.99,9.23,11.79,3.98,2.8,8.64,4.2,13.99,4.2,5.61,0,10.36-1.6,14.26-4.79,3.89-3.2,6.16-7.33,6.79-12.39h26.07c-1,7.9-3.64,14.81-7.94,20.71-4.3,5.91-9.8,10.48-16.5,13.72-6.7,3.24-14.26,4.86-22.68,4.86Z"/>
+                <path class="cls-1" d="M225.92,46.4s-174.86,0-174.86,0c-28.2,0-51.06,22.86-51.06,51.06v209.26h23.72V103.94c0-18.68,15.14-33.82,33.82-33.82h168.38s0-23.72,0-23.72Z"/>
+                <path class="cls-1" d="M81.12,0h102.61c3.27,0,5.92,2.65,5.92,5.92v22.32h-114.45V5.92c0-3.27,2.65-5.92,5.92-5.92Z"/>
+                <path class="cls-2" d="M621.79,141.01c0-3.02-2.44-5.46-5.46-5.46h-51.5v-38.1c0-28.2-22.86-51.06-51.06-51.06H244.99v23.72h262.31c18.68,0,33.82,15.14,33.82,33.82v31.62h-.1v23.72h.1v.09h23.72v-.09h56.95v-18.26Z"/>
+                <g>
+                    <path class="cls-2" d="M88.09,297.4c.72,3.19,2.97,4.71,6.72,4.71s5.45-1.64,5.45-4.04c0-2.62-1.45-3.88-6.84-5.16-7.73-1.83-9.89-4.6-9.89-8.68,0-4.93,3.67-8.48,10.59-8.48,7.63,0,10.7,4.2,11.12,8.41h-5.64c-.39-2.11-1.62-4.17-5.64-4.17-2.96,0-4.7,1.27-4.7,3.63s1.41,3.25,6.36,4.42c8.61,2.05,10.37,5.3,10.37,9.37,0,5.22-3.93,8.97-11.6,8.97s-11.26-3.85-11.94-8.99h5.64Z"/>
+                    <path class="cls-2" d="M120.82,305.98v-10.66c0-.32-.06-.62-.23-.9l-10.35-18.22h6.34c2.44,4.61,5.88,11.17,7.33,14.2,1.29-2.93,4.96-9.71,7.41-14.2h5.88l-10.55,18.19c-.12.2-.22.34-.22.89v10.72h-5.6Z"/>
+                    <path class="cls-2" d="M146.89,297.4c.72,3.19,2.97,4.71,6.72,4.71s5.45-1.64,5.45-4.04c0-2.62-1.45-3.88-6.84-5.16-7.73-1.83-9.89-4.6-9.89-8.68,0-4.93,3.67-8.48,10.59-8.48,7.63,0,10.7,4.2,11.12,8.41h-5.64c-.39-2.11-1.62-4.17-5.64-4.17-2.96,0-4.7,1.27-4.7,3.63s1.41,3.25,6.36,4.42c8.61,2.05,10.37,5.3,10.37,9.37,0,5.22-3.93,8.97-11.6,8.97s-11.26-3.85-11.94-8.99h5.64Z"/>
+                    <path class="cls-2" d="M179.3,280.82h-9.25v-4.63h24.08v4.63h-9.23v25.16h-5.6v-25.16Z"/>
+                    <path class="cls-2" d="M221.33,292.76h-14.44v8.59h15.91l-.68,4.63h-20.67v-29.79h20.53v4.63h-15.1v7.31h14.44v4.63Z"/>
+                    <path class="cls-2" d="M256.14,294.29c0-5.24.07-10.91.2-14.2h-.19c-1.36,5.65-4.97,16.55-8.02,25.89h-4.82c-2.31-7.97-6.05-20.31-7.37-25.97h-.18c.25,3.48.36,9.77.36,14.88v11.08h-5.13v-29.79h8.32c2.69,8.28,5.81,18.79,6.75,23.01h.06c.72-3.56,4.55-14.91,7.38-23.01h8.04v29.79h-5.41v-11.7Z"/>
+                    <path class="cls-2" d="M289.48,297.4c.72,3.19,2.97,4.71,6.72,4.71s5.45-1.64,5.45-4.04c0-2.62-1.45-3.88-6.84-5.16-7.73-1.83-9.89-4.6-9.89-8.68,0-4.93,3.67-8.48,10.59-8.48,7.63,0,10.7,4.2,11.12,8.41h-5.64c-.39-2.11-1.62-4.17-5.64-4.17-2.96,0-4.7,1.27-4.7,3.63s1.41,3.25,6.36,4.42c8.61,2.05,10.37,5.3,10.37,9.37,0,5.22-3.93,8.97-11.6,8.97s-11.26-3.85-11.94-8.99h5.64Z"/>
+                    <path class="cls-2" d="M343.01,290.96c0,8.26-4.85,15.45-14.42,15.45s-14.04-6.79-14.04-15.33,5.26-15.33,14.44-15.33c8.6,0,14.03,6.17,14.03,15.2ZM320.33,290.96c0,6.03,2.81,10.86,8.47,10.86,6.14,0,8.41-5.11,8.41-10.78s-2.59-10.67-8.48-10.67-8.41,4.61-8.41,10.6Z"/>
+                    <path class="cls-2" d="M352.05,276.19h5.59v25.16h15.08l-.67,4.63h-19.99v-29.79Z"/>
+                    <path class="cls-2" d="M384.71,276.19v17.81c0,6.17,3.25,7.94,6.67,7.94,3.95,0,6.55-2.02,6.55-7.94v-17.81h5.6v17.53c0,10.01-5.75,12.67-12.24,12.67s-12.2-2.81-12.2-12.49v-17.71h5.61Z"/>
+                    <path class="cls-2" d="M420.36,280.82h-9.25v-4.63h24.08v4.63h-9.23v25.16h-5.6v-25.16Z"/>
+                    <path class="cls-2" d="M448.1,276.19v29.79h-5.59v-29.79h5.59Z"/>
+                    <path class="cls-2" d="M485.6,290.96c0,8.26-4.85,15.45-14.42,15.45s-14.04-6.79-14.04-15.33,5.26-15.33,14.44-15.33c8.6,0,14.03,6.17,14.03,15.2ZM462.92,290.96c0,6.03,2.81,10.86,8.47,10.86,6.14,0,8.41-5.11,8.41-10.78s-2.59-10.67-8.48-10.67-8.41,4.61-8.41,10.6Z"/>
+                    <path class="cls-2" d="M494.64,305.98v-29.79h7.04c3.91,6.78,11.62,19.79,13.09,23.03h.07c-.32-3.35-.31-8.36-.31-13.25v-9.79h5.12v29.79h-6.66c-3.45-6.04-11.78-20.61-13.39-24.02h-.07c.21,2.88.26,8.63.26,13.98v10.04h-5.15Z"/>
+                </g>
+            </svg>
+
+            <!-- Hamburger Icon -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#servizi" data-mouse-control="type-m">Servizi</a></li>
+                <li><a href="#materiali" data-mouse-control="type-m">Materiali</a></li>
+                <li><a href="#certificazioni" data-mouse-control="type-m">Certificazioni</a></li>
+                <li><a href="#chi-siamo" data-mouse-control="type-m">Chi Siamo</a></li>
+                <li><a href="#contatti" data-mouse-control="type-m">Contatti</a></li>
+                
+                <!-- Minimal Social Icons -->
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/cmcasrl" target="_blank" rel="noopener" aria-label="Facebook" data-mouse-control="type-c">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/cmcasrl" target="_blank" rel="noopener" aria-label="Instagram" data-mouse-control="type-c">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/cmca-srl" target="_blank" rel="noopener" aria-label="LinkedIn" data-mouse-control="type-c">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                    <a href="https://wa.me/393339784076" target="_blank" rel="noopener" aria-label="WhatsApp" data-mouse-control="type-c">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    </a>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Specialisti in Impianti Aeraulici dal 1990</h1>
+        <img src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=1200&q=80" alt="Impianti aeraulici CMCA" style="width: 100%; max-width: 900px; height: auto; display: block; margin: 0 auto;">
+        <p>Oltre 30 anni di esperienza nella progettazione, costruzione e sanificazione di sistemi di canalizzazione per ogni esigenza</p>
+        <a href="#contatti" class="cta-button" data-mouse-control="type-c">Richiedi Preventivo</a>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servizi">
+        <h2 class="section-title">I Nostri Servizi</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🏗️</div>
+                <h3>Progettazione e Costruzione</h3>
+                <p>Realizziamo canalizzazioni aerauliche su misura per impianti di condizionamento, ventilazione e riscaldamento.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3>Installazione Impianti</h3>
+                <p>Installazione completa di impianti aeraulici chiavi in mano, con personale specializzato e certificato.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">✨</div>
+                <h3>Sanificazione Certificata</h3>
+                <p>Servizio professionale di sanificazione secondo protocolli AIISA-NADCA per aria pulita e sicura.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🌿</div>
+                <h3>Trattamento con Ozono</h3>
+                <p>Sanificazione ambientale con ozono, soluzione ecologica altamente efficace contro virus e batteri.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Manutenzione Programmata</h3>
+                <p>Servizi di manutenzione periodica per garantire l'efficienza e la durata degli impianti aeraulici.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📋</div>
+                <h3>Consulenza Tecnica</h3>
+                <p>Supporto tecnico specializzato per la scelta delle migliori soluzioni impiantistiche.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certificazioni" style="background: #f8f9fa;">
+        <h2 class="section-title">Certificazioni e Garanzie di Qualità</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem; color: #666;">
+            Siamo membri certificati delle più importanti associazioni internazionali del settore
+        </p>
+        
+        <div class="cert-grid">
+            <!-- AIISA Certification -->
+            <div class="cert-card">
+                <div class="cert-logo" style="background: linear-gradient(135deg, #005596 0%, #0066ba 100%);">
+                    <svg width="100" height="100" viewBox="0 0 200 200" fill="white">
+                        <circle cx="100" cy="100" r="85" fill="none" stroke="white" stroke-width="6"/>
+                        <text x="100" y="120" font-family="Arial, sans-serif" font-size="54" font-weight="bold" fill="white" text-anchor="middle">AIISA</text>
+                    </svg>
+                </div>
+                <h3>Associazione Italiana Igienisti Sistemi Aeraulici</h3>
+                <p>Membri certificati per la sanificazione e bonifica degli impianti aeraulici</p>
+                <a href="https://aiisa.eu/avada_portfolio/cmca-srl/" target="_blank" rel="noopener" class="cert-link" data-mouse-control="type-c">Vedi Profilo AIISA →</a>
+            </div>
+
+            <!-- NADCA Certification -->
+            <div class="cert-card">
+                <div class="cert-logo" style="background: linear-gradient(135deg, #a41e22 0%, #d32f2f 100%);">
+                    <svg width="100" height="100" viewBox="0 0 200 200" fill="white">
+                        <circle cx="100" cy="100" r="85" fill="none" stroke="white" stroke-width="6"/>
+                        <text x="100" y="120" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="white" text-anchor="middle">NADCA</text>
+                    </svg>
+                </div>
+                <h3>National Air Duct Cleaners Association</h3>
+                <p>Certificazione internazionale per la pulizia professionale dei condotti d'aria</p>
+            </div>
+
+            <!-- Certified Hygienists -->
+            <div class="cert-card">
+                <div class="cert-logo" style="background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);">
+                    <svg width="100" height="100" viewBox="0 0 200 200" fill="white">
+                        <circle cx="100" cy="100" r="85" fill="none" stroke="white" stroke-width="6"/>
+                        <path d="M100 60 L110 90 L140 90 L115 110 L125 140 L100 120 L75 140 L85 110 L60 90 L90 90 Z" fill="#FFD700"/>
+                    </svg>
+                </div>
+                <h3>Igienisti Certificati</h3>
+                <p>Personale specializzato certificato ASCS e CVI secondo protocolli AIISA-NADCA</p>
+            </div>
+
+            <!-- CE Materials -->
+            <div class="cert-card">
+                <div class="cert-logo" style="background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);">
+                    <svg width="100" height="100" viewBox="0 0 200 200" fill="white">
+                        <circle cx="100" cy="100" r="85" fill="none" stroke="white" stroke-width="6"/>
+                        <text x="100" y="125" font-family="Arial, sans-serif" font-size="70" font-weight="bold" fill="white" text-anchor="middle">CE</text>
+                    </svg>
+                </div>
+                <h3>Materiali Certificati</h3>
+                <p>Utilizzo esclusivo di materiali con marcatura CE e certificazioni di qualità</p>
+            </div>
+        </div>
+
+        <!-- Certified Personnel Stats -->
+        <div style="background: white; padding: 3rem; border-radius: 15px; margin-top: 3rem; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+            <h3 style="font-size: 1.8rem; margin-bottom: 2rem; color: #2C3E50;">Personale Certificato</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+                <div>
+                    <div style="font-size: 3rem; font-weight: bold; color: #006BBA; margin-bottom: 0.5rem;">3</div>
+                    <p style="font-size: 1.1rem; color: #666;">Tecnici ASCS Certificati</p>
+                </div>
+                <div>
+                    <div style="font-size: 3rem; font-weight: bold; color: #006BBA; margin-bottom: 0.5rem;">1</div>
+                    <p style="font-size: 1.1rem; color: #666;">Tecnico CVI Certificato</p>
+                </div>
+                <div>
+                    <div style="font-size: 3rem; font-weight: bold; color: #006BBA; margin-bottom: 0.5rem;">2014</div>
+                    <p style="font-size: 1.1rem; color: #666;">Membri NADCA dal</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contatti" style="background: #f8f9fa;">
+        <h2 class="section-title">Contattaci per un Preventivo Gratuito</h2>
+        <div class="contact-form">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="nome">Nome e Cognome *</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="telefono">Telefono *</label>
+                    <input type="tel" id="telefono" name="telefono" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="servizio">Servizio di Interesse</label>
+                    <select id="servizio" name="servizio">
+                        <option value="">Seleziona un servizio</option>
+                        <option value="Progettazione e Costruzione">Progettazione e Costruzione</option>
+                        <option value="Installazione Impianti">Installazione Impianti</option>
+                        <option value="Sanificazione">Sanificazione Certificata</option>
+                        <option value="Trattamento Ozono">Trattamento con Ozono</option>
+                        <option value="Manutenzione">Manutenzione Programmata</option>
+                        <option value="Consulenza">Consulenza Tecnica</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="messaggio">Messaggio *</label>
+                    <textarea id="messaggio" name="messaggio" required rows="5"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn" data-mouse-control="type-c">Invia Richiesta</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CMCA S.r.l.</h3>
+                <p>Specialisti nella costruzione e montaggio di canalizzazioni per impianti aeraulici dal 1990.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contatti</h3>
+                <p>Località Profeta, Traversa Catanzaro, 3</p>
+                <p>88050 Caraffa di Catanzaro (CZ)</p>
+                <a href="tel:+390961954084">+39 0961 954084</a>
+                <a href="mailto:cmcasrl@gmail.com">cmcasrl@gmail.com</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Certificazioni</h3>
+                <p>✓ Membri AIISA</p>
+                <p>✓ Membri NADCA</p>
+                <p>✓ P.IVA 02937870794</p>
+                <p>✓ REA CZ-182024</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 CMCA S.r.l. - Tutti i diritti riservati</p>
+        </div>
+    </footer>
+
+    <script>
+        // Custom Cursor Movement
+        const cursor = document.querySelector('.cursor');
+        const cursorFollow = document.querySelector('.cursor-follow');
+
+        document.body.addEventListener('mouseout', function() {
+            cursor.style.display = 'none';
+            cursorFollow.style.display = 'none';
+        });
+
+        document.body.addEventListener('mousemove', function(e) {
+            cursor.style.display = 'block';
+            cursorFollow.style.display = 'block';
+            
+            const target = e.target;
+            const mouseControl = target.getAttribute('data-mouse-control') || target.closest('[data-mouse-control]')?.getAttribute('data-mouse-control');
+            
+            if (mouseControl === 'type-m') {
+                const elem = target.closest('[data-mouse-control="type-m"]');
+                if (elem) {
+                    const rect = elem.getBoundingClientRect();
+                    cursor.classList.add('on-focus');
+                    cursorFollow.style.top = (rect.top + rect.height / 2) + 6 + 'px';
+                    cursorFollow.style.left = (rect.left + rect.width) + 4 + 'px';
+                    cursorFollow.classList.add('on-focus');
+                }
+            } else if (mouseControl === 'type-c') {
+                const elem = target.closest('[data-mouse-control="type-c"]');
+                if (elem) {
+                    const rect = elem.getBoundingClientRect();
+                    cursor.classList.add('on-focus');
+                    cursorFollow.style.top = rect.top + 'px';
+                    cursorFollow.style.left = rect.left + 'px';
+                    cursorFollow.style.width = rect.width + 'px';
+                    cursorFollow.style.height = rect.height + 'px';
+                    cursorFollow.classList.add('on-focus');
+                }
+            } else {
+                cursor.style.top = e.clientY + 'px';
+                cursor.style.left = e.clientX + 'px';
+                cursorFollow.style.top = e.clientY + 'px';
+                cursorFollow.style.left = e.clientX + 'px';
+                cursorFollow.style.width = '';
+                cursorFollow.style.height = '';
+                cursor.classList.remove('on-focus');
+                cursorFollow.classList.remove('on-focus');
+            }
+        });
+
+        // Hamburger Menu
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            const emailBody = `
+Nome: ${data.nome}
+Email: ${data.email}
+Telefono: ${data.telefono}
+Servizio: ${data.servizio || 'Non specificato'}
+
+Messaggio:
+${data.messaggio}
+            `.trim();
+            
+            const mailtoLink = `mailto:cmcasrl@gmail.com?subject=Richiesta informazioni da sito web - ${data.nome}&body=${encodeURIComponent(emailBody)}`;
+            
+            window.location.href = mailtoLink;
+            this.reset();
+        });
+    </script>
+</body>
+</html>
